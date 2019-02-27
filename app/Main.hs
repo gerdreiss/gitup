@@ -4,4 +4,6 @@ import Gitup
 import System.Environment (getArgs)
 
 main :: IO ()
-main = getArgs >>= updateAll
+main = do
+    [path] <- getArgs
+    updateAll path
