@@ -1,9 +1,9 @@
 module Main where
 
-import Gitup
+import Gitup (updateAll)
 import System.Environment (getArgs)
 
 main :: IO ()
 main = do
-    [path] <- getArgs
-    updateAll path
+  [path] <- getArgs
+  updateAll path
