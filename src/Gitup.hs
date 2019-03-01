@@ -15,6 +15,4 @@ listSubdirs root =
   map (root </>) . filter (`notElem` [".", ".."]) <$> listDirectory root
 
 isGitRepo :: FilePath -> IO Bool
-isGitRepo dir = do
-  subdirs <- listDirectory dir
-  return $ elem ".git" subdirs
+isGitRepo dir = elem ".git" <$> listDirectory dir
