@@ -30,7 +30,7 @@ library:
   source-dirs: src
 
 executables:
-  gitup-exe:
+  gitup:
     main:                Main.hs
     source-dirs:         app
     ghc-options:

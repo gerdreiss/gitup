@@ -24,3 +24,5 @@ updateRepo path = do
   runProcess_ $ proc "cd" [path]
   putStrLn $ "updating " ++ path
   runProcess_ $ proc "git" ["pull"]
+  runProcess_ $ proc "cd" [".."]
+
