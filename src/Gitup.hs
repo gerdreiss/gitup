@@ -2,10 +2,10 @@ module Gitup
   ( updateAll
   ) where
 
-import Control.Monad (filterM)
-import System.Directory (doesDirectoryExist, listDirectory)
-import System.FilePath (FilePath, (</>))
-import System.Process.Typed (proc, runProcess_)
+import           Control.Monad        (filterM)
+import           System.Directory     (doesDirectoryExist, listDirectory)
+import           System.FilePath      (FilePath, (</>))
+import           System.Process.Typed (proc, runProcess_)
 
 updateAll :: String -> IO ()
 updateAll dir =
@@ -25,4 +25,3 @@ updateRepo path = do
   putStrLn $ "updating " ++ path
   runProcess_ $ proc "git" ["pull"]
   runProcess_ $ proc "cd" [".."]
-
