@@ -1,16 +1,25 @@
 module Gitup
   ( updateAll
-  ) where
+  )
+where
 
-import           Control.Monad        (filterM)
-import           System.Directory     (doesDirectoryExist, listDirectory)
-import           System.FilePath      (FilePath, (</>))
-import           System.Process.Typed (proc, runProcess_)
+import           Control.Monad                  ( filterM )
+import           System.Directory               ( doesDirectoryExist
+                                                , listDirectory
+                                                )
+import           System.FilePath                ( FilePath
+                                                , (</>)
+                                                )
+import           System.Process.Typed           ( proc
+                                                , runProcess_
+                                                )
 
 updateAll :: String -> IO ()
 updateAll dir =
-  listSubdirs dir >>= filterM doesDirectoryExist >>= filterM isGitRepo >>=
-  mapM_ updateRepo
+  listSubdirs dir
+    >>= filterM doesDirectoryExist
+    >>= filterM isGitRepo
+    >>= mapM_ updateRepo
 
 listSubdirs :: FilePath -> IO [FilePath]
 listSubdirs root =

@@ -1,3 +1,4 @@
 .stack-work/
 gitup.cabal
 *~
+*.lock
